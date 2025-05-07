@@ -1,148 +1,109 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0d1117;
+  background: #0d1117;
   color: #c9d1d9;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
-.bg-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  z-index: -10;
-  opacity: 0.3;
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-header {
+.site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: rgba(13, 17, 23, 0.8);
-  backdrop-filter: blur(12px);
+  background: rgba(13, 17, 23, 0.9);
   padding: 1.5rem 2rem;
+  z-index: 100;
   border-bottom: 1px solid #30363d;
 }
-.header-flex {
+
+.header-container {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
+
 .portrait {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  border: 2px solid #58a6ff;
   object-fit: cover;
+  border: 2px solid #58a6ff;
 }
 
 .wave-text {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   background: linear-gradient(90deg, #58a6ff, #79c0ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: waveFloat 6s infinite ease-in-out;
+  animation: floatWave 4s ease-in-out infinite;
 }
 
-@keyframes waveFloat {
+@keyframes floatWave {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
 }
 
 nav a {
-  margin: 0 1rem;
+  margin: 0 0.75rem;
   text-decoration: none;
   color: #58a6ff;
-  font-weight: bold;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 nav a:hover { color: #79c0ff; }
 
 main {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 3rem 1.5rem;
 }
-.section {
+
+/* Alternating layout */
+.info-section {
   display: flex;
-  flex-direction: column;
-  margin: 4rem 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 5rem;
   opacity: 0;
-  transform: translateY(80px);
+  transform: translateY(100px);
   transition: all 1s ease;
-  position: relative;
-  min-height: 500px;
 }
-.section.visible {
+.info-section.visible {
   opacity: 1;
   transform: translateY(0);
 }
-.section-media {
-  position: absolute;
-  top: 0;
-  left: 0;
+.info-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.info-image img {
+  max-width: 500px;
   width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  opacity: 0.15;
-  mix-blend-mode: lighten;
-  z-index: -1;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(88, 166, 255, 0.1);
 }
-.section-content {
-  padding: 3rem;
-  background: rgba(0,0,0,0.3);
-  border-left: 4px solid #58a6ff;
-  backdrop-filter: blur(6px);
-  border-radius: 10px;
+
+.info-content {
+  flex: 1 1 50%;
 }
-.align-left .section-content {
-  text-align: left;
-  margin-left: 0;
-}
-.align-center .section-content {
-  text-align: center;
-  margin: 0 auto;
-}
-.align-right .section-content {
-  text-align: right;
-  margin-right: 0;
-}
+.align-left { text-align: left; }
+.align-right { text-align: right; }
 
 h2 {
   color: #f0f6fc;
-  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.card {
+.project-card {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #30363d;
+  padding: 1.25rem;
   border-radius: 10px;
-  padding: 1.2rem;
-  margin: 1.5rem auto;
-  max-width: 600px;
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s ease;
-}
-.card:hover {
-  transform: scale(1.02);
+  margin-top: 1.5rem;
+  border-left: 4px solid #58a6ff;
 }
 .view-more {
-  display: inline-block;
-  margin-top: 0.5rem;
   color: #58a6ff;
   font-weight: bold;
   text-decoration: none;
@@ -152,34 +113,29 @@ h2 {
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 input, textarea {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid #30363d;
-  color: #c9d1d9;
   border-radius: 6px;
   padding: 0.8rem;
   margin-bottom: 1rem;
-  width: 90%;
-  max-width: 500px;
+  color: #c9d1d9;
 }
 button {
   background-color: #238636;
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem;
   border: none;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
 }
-button:hover {
-  background-color: #2ea043;
-}
+button:hover { background-color: #2ea043; }
+
 footer {
   text-align: center;
   padding: 2rem;
   color: #8b949e;
-  font-size: 0.9rem;
 }
