@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ibraheem Fawal | AI Software Developer</title>
+  <title>Ibraheem Fawal| AI Software Developer</title>
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/script.js" defer></script>
 </head>
-
 <body>
-  <div class="bg-animation"></div>
-  <header>
-    <div class="container header-flex align-left">
+  <header class="site-header">
+    <div class="header-container">
       <img src="images/portrait.jpg" alt="Portrait" class="portrait" />
       <div>
         <h1 class="wave-text">Alex Morgan</h1>
-        <p class="subtitle">AI-Focused Software Developer</p>
-
+        <p class="subtitle">AI Software Engineer | Automotive & Mobile AI</p>
         <nav>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
@@ -27,36 +24,44 @@
   </header>
 
   <main>
-    <section id="about" class="section hidden align-left">
-      <div class="section-media" style="background-image: url('images/automotive_ai.jpg');"></div>
-      <div class="section-content">
+
+    <!-- About Section -->
+    <section id="about" class="info-section hidden">
+      <div class="info-image">
+        <img src="images/automotive_ai.jpg" alt="Automotive AI" />
+      </div>
+      <div class="info-content align-left">
         <h2>About Me</h2>
-        <p>I specialize in AI systems that power real-time decision-making, particularly in automotive and mobile spaces. I love bridging the gap between theoretical models and real-world applications.</p>
+        <p>I’m an AI-focused software developer specializing in autonomous systems, neural networks, and intelligent mobile applications. My passion lies in building real-time decision-making tools that integrate AI into everyday tools and industries like automotive and consumer devices.</p>
       </div>
     </section>
 
-    <section id="projects" class="section hidden align-center">
-      <div class="section-media" style="background-image: url('images/neural_network.gif');"></div>
-      <div class="section-content">
-        <h2>AI Projects</h2>
-
-        <div class="card">
+    <!-- Projects Section -->
+    <section id="projects" class="info-section hidden reverse">
+      <div class="info-image">
+        <img src="images/neural_network.gif" alt="Neural Network Visualizer" />
+      </div>
+      <div class="info-content align-right">
+        <h2>Featured Projects</h2>
+        <div class="project-card">
           <h3>🧠 Neural Network Visualizer</h3>
-          <p>TensorFlow.js tool for real-time visualization of forward/backpropagation in dense neural nets.</p>
+          <p>Visualizes real-time neural net training using TensorFlow.js and D3.js. Great for demos and teaching.</p>
           <a href="#" class="view-more">View More</a>
         </div>
-
-        <div class="card">
-          <h3>🤖 GPT Chatbot</h3>
-          <p>A personalized chatbot trained on academic datasets for live advising via OpenAI's GPT API.</p>
+        <div class="project-card">
+          <h3>🤖 GPT Advisor Bot</h3>
+          <p>A chatbot trained on academic datasets for smart advising using OpenAI’s GPT API.</p>
           <a href="#" class="view-more">View More</a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section hidden align-right">
-      <div class="section-media" style="background-image: url('images/mobile_ai.jpg');"></div>
-      <div class="section-content">
+    <!-- Contact Section -->
+    <section id="contact" class="info-section hidden">
+      <div class="info-image">
+        <img src="images/mobile_ai.jpg" alt="Mobile AI" />
+      </div>
+      <div class="info-content align-left">
         <h2>Contact Me</h2>
         <form id="contactForm">
           <input type="text" placeholder="Your Name" required />
@@ -69,7 +74,7 @@
   </main>
 
   <footer>
-    <p>© Ibraheem Marwan Fawal | AI Portfolio</p>
+    <p>© Ibraheem Marwan Fawal| AI Portfolio</p>
   </footer>
 </body>
 </html>
