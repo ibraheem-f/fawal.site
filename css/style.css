@@ -275,3 +275,51 @@ body.dark button {
   background: linear-gradient(90deg, #7e83ff, #9d70ff);
 }
 
+/* --- Project Icon Grid Updated --- */
+.custom-shift-left {
+  margin-left: -40px;
+}
+@media screen and (max-width: 768px) {
+  .custom-shift-left {
+    margin-left: 0;
+  }
+}
+
+.project-icon-grid.labeled-icons {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.icon-label-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.icon-label-pair:hover {
+  transform: scale(1.05);
+}
+
+.icon-label-pair img {
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.icon-label-pair span {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  text-align: center;
+}
+
+body.dark .icon-label-pair span {
+  color: #ddd;
+}
