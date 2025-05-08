@@ -1,10 +1,64 @@
-/* Reset and Typography */
+/* Reset & Base Styles */
 body {
   margin: 0;
   font-family: 'Segoe UI', Roboto, sans-serif;
-  background: #f9f9f9;
-  color: #222;
   scroll-behavior: smooth;
+  color: #222;
+  overflow-x: hidden;
+
+  /* Soft animated background with radial corners */
+  background: radial-gradient(circle at top left, rgba(94, 96, 206, 0.08), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(105, 48, 195, 0.08), transparent 60%),
+              #f9f9f9;
+  background-size: 200% 200%;
+  animation: gradientScroll 20s ease-in-out infinite;
+}
+/* THEME SWITCH STYLES */
+.theme-toggle {
+  margin-left: auto;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; width: 18px;
+  left: 3px; bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #5E60CE;
+}
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+
+@keyframes gradientScroll {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
 }
 
 /* Header */
@@ -16,19 +70,20 @@ body {
   top: 0;
   z-index: 100;
 }
-
 .header-container {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
 }
+
 .portrait {
-  width: 80px;
-  height: 80px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #5E60CE;
+  border: 3px solid #5E60CE;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .wave-text {
@@ -57,13 +112,14 @@ nav a {
 }
 nav a:hover { color: #6930C3; }
 
+/* Layout */
 main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
 }
 
-/* Sections */
+/* Alternating Section Layout */
 .info-section {
   display: flex;
   flex-wrap: wrap;
@@ -101,6 +157,7 @@ h2 {
   margin-bottom: 1rem;
 }
 
+/* Project Cards */
 .project-card {
   background: #ffffff;
   border: 1px solid #e0e0e0;
@@ -151,3 +208,38 @@ footer {
   font-size: 0.9rem;
   color: #666;
 }
+
+body.dark {
+  background: #1e1e2f;
+  color: #eaeaea;
+}
+body.dark .site-header {
+  background: #292c3c;
+  border-bottom: 1px solid #444;
+}
+body.dark nav a {
+  color: #90a0ff;
+}
+body.dark nav a:hover {
+  color: #c0c3ff;
+}
+body.dark .project-card,
+body.dark input,
+body.dark textarea {
+  background: #2c2f3f;
+  border-color: #444;
+  color: #eaeaea;
+}
+body.dark .info-content {
+  color: #eaeaea;
+}
+body.dark .view-more {
+  color: #9fa7ff;
+}
+body.dark .wave-text {
+  -webkit-text-fill-color: white;
+}
+body.dark button {
+  background: linear-gradient(90deg, #7e83ff, #9d70ff);
+}
+
