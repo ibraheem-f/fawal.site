@@ -172,6 +172,27 @@ h2 {
   text-decoration: none;
 }
 .view-more:hover { text-decoration: underline; }
+.project-icon-grid {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.project-icon-grid a img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.project-icon-grid a:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.15);
+}
 
 /* Contact Form */
 form {
