@@ -5,9 +5,9 @@ body {
   scroll-behavior: smooth;
   color: #222;
   overflow-x: hidden;
-  background: radial-gradient(circle at top left, rgba(94, 96, 206, 0.08), transparent 60%),
-              radial-gradient(circle at bottom right, rgba(105, 48, 195, 0.08), transparent 60%),
-              #f9f9f9;
+  background: radial-gradient(circle at top left, rgba(94, 96, 206, 0.18), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(105, 48, 195, 0.18), transparent 60%),
+              #f0f0f0;
   background-size: 200% 200%;
   animation: gradientScroll 20s ease-in-out infinite;
 }
@@ -261,4 +261,31 @@ body.dark .wave-text {
 }
 body.dark button {
   background: linear-gradient(90deg, #7e83ff, #9d70ff);
+}
+
+/* Lebanese Theme Accents */
+.lebanese-green {
+  color: #007A3D;
+}
+.lebanese-red {
+  color: #C8102E;
+}
+.lebanese-accent-bg {
+  background: linear-gradient(to right, #C8102E 0%, #ffffff 50%, #007A3D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url('../images/lebanese-cedar.png') no-repeat center center;
+  background-size: 200px auto;
+  opacity: 0.03;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+  z-index: 0;
 }
