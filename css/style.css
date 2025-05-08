@@ -139,7 +139,7 @@ main {
 }
 /* Custom: Slight left shift for About Me layout */
 .custom-shift-left {
-  margin-left: -40px;
+  margin-left: -160px;
 }
 
 @media screen and (max-width: 768px) {
