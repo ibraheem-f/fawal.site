@@ -3,8 +3,19 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
-  color: #000000;
-  background: linear-gradient(to bottom, #d90000, #ffffff 50%, #007a3d);
+  color: #222;
+  overflow-x: hidden;
+  background: radial-gradient(circle at top left, rgba(94, 96, 206, 0.18), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(105, 48, 195, 0.18), transparent 60%),
+              #f0f0f0;
+  background-size: 200% 200%;
+  animation: gradientScroll 20s ease-in-out infinite;
+}
+
+@keyframes gradientScroll {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
 }
 
 /* THEME SWITCH STYLES */
@@ -34,26 +45,247 @@ body {
 .slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 4px;
+  height: 18px; width: 18px;
+  left: 3px; bottom: 3px;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
 }
 input:checked + .slider {
-  background-color: #007a3d;
+  background-color: #5E60CE;
 }
 input:checked + .slider:before {
   transform: translateX(24px);
 }
 
-/* Lebanese Theme Enhancements */
-header {
-  background-image: url('../images/cedar.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 200px;
+/* Header */
+.site-header {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.portrait {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #5E60CE;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.wave-text {
+  font-size: 2.4rem;
+  background: linear-gradient(90deg, #5E60CE, #6930C3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: floatWave 5s infinite ease-in-out;
+}
+@keyframes floatWave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+nav a {
+  margin: 0 0.75rem;
+  text-decoration: none;
+  color: #5E60CE;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+nav a:hover { color: #6930C3; }
+
+/* Layout */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Sections */
+.info-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s ease;
+}
+.info-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.info-section.reverse {
+  flex-direction: row-reverse;
+}
+.custom-shift-left {
+  margin-left: -40px;
+}
+@media screen and (max-width: 768px) {
+  .custom-shift-left {
+    margin-left: 0;
+  }
+}
+.info-image img {
+  max-width: 480px;
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+}
+.info-content {
+  flex: 1 1 50%;
+}
+.align-left { text-align: left; }
+.align-right { text-align: right; }
+
+h2 {
+  color: #222;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Project Icon Grid with Labels */
+.project-icon-grid.labeled-icons {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.icon-label-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.icon-label-pair:hover {
+  transform: scale(1.05);
+}
+.icon-label-pair img {
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+.icon-label-pair span {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  text-align: center;
+}
+body.dark .icon-label-pair span {
+  color: #ddd;
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+input, textarea {
+  background: #ffffff;
+  border: 1px solid #ccc;
+  padding: 0.9rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #222;
+}
+button {
+  background: linear-gradient(90deg, #5E60CE, #6930C3);
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: linear-gradient(90deg, #6930C3, #5E60CE);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Dark Theme Overrides */
+body.dark {
+  background: #1e1e2f;
+  color: #eaeaea;
+}
+body.dark .site-header {
+  background: #292c3c;
+  border-bottom: 1px solid #444;
+}
+body.dark nav a {
+  color: #90a0ff;
+}
+body.dark nav a:hover {
+  color: #c0c3ff;
+}
+body.dark .project-card,
+body.dark input,
+body.dark textarea {
+  background: #2c2f3f;
+  border-color: #444;
+  color: #eaeaea;
+}
+body.dark .info-content {
+  color: #eaeaea;
+}
+body.dark .view-more {
+  color: #9fa7ff;
+}
+body.dark .wave-text {
+  -webkit-text-fill-color: white;
+}
+body.dark button {
+  background: linear-gradient(90deg, #7e83ff, #9d70ff);
+}
+
+/* Lebanese Theme Accents */
+.lebanese-green {
+  color: #007A3D;
+}
+.lebanese-red {
+  color: #C8102E;
+}
+.lebanese-accent-bg {
+  background: linear-gradient(to right, #C8102E 0%, #ffffff 50%, #007A3D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url('../images/lebanese-cedar.png') no-repeat center center;
+  background-size: 200px auto;
+  opacity: 0.03;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+  z-index: 0;
 }
