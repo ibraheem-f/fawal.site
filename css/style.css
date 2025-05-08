@@ -137,6 +137,17 @@ main {
 .info-section.reverse {
   flex-direction: row-reverse;
 }
+/* Custom: Slight left shift for About Me layout */
+.custom-shift-left {
+  margin-left: -40px;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-shift-left {
+    margin-left: 0; /* Reset on mobile */
+  }
+}
+
 
 .info-image img {
   max-width: 480px;
