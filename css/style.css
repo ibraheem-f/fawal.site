@@ -289,3 +289,18 @@ body::before {
   pointer-events: none;
   z-index: 0;
 }
+
+.github-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #24292e;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.github-button:hover {
+  background-color: #444;
+}
+
